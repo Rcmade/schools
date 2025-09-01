@@ -11,6 +11,7 @@ import {
 import { Filter } from "lucide-react";
 import { useSchoolSearch } from "../../hooks/useSearchSchool";
 import SchoolCard from "../cards/SchoolCard";
+import SchoolCardSkeleton from "../cards/SchoolCardSkeleton";
 import SearchFilterSidebar from "../sidebar/SearchFilterSidebar";
 
 const SchoolCardGridSections = () => {
@@ -20,7 +21,7 @@ const SchoolCardGridSections = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-end md:hidden" >
+      <div className="flex justify-end md:hidden">
         <Sheet>
           <SheetTrigger asChild>
             <Button className="gap-2 ml-auto" size={"sm"}>
@@ -37,14 +38,12 @@ const SchoolCardGridSections = () => {
           </SheetContent>
         </Sheet>
       </div>
+
       {/* Grid */}
       <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
         {isLoading
           ? Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="h-40 animate-pulse rounded-lg border bg-muted/30"
-              />
+              <SchoolCardSkeleton key={i} />
             ))
           : (data?.data ?? []).map((school) => (
               <SchoolCard key={school.id} school={school} />
