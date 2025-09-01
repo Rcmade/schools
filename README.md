@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏫 School Directory Demo
 
-## Getting Started
+A demo application to **add, manage, and search schools**.
+Built with **Next.js**, **MySQL**, **React Hook Form**, **Zod Validator**, **Drizzle ORM**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- 📱 **Responsive UI** (mobile, tablet, desktop) with ShadCN UI
+- 📝 **School registration form** with validation (React Hook Form + Zod)
+- 🔍 **Search schools** by name, city, board, or medium
+- 🖼️ **Image upload** using Cloudinary
+- ⚡ **API backend with Next.js and Hono.js**
+- 🗄️ **MySQL database** with Drizzle ORM migrations and seed scripts
+- 🎨 Clean, modern, and accessible UI
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: [Next.js](https://nextjs.org), [ShadCN UI](https://ui.shadcn.com), [React Hook Form](https://react-hook-form.com), [Zod](https://zod.dev)
+- **Backend**: [Next.js](https://nextjs.org/), [Hono.js](https://hono.dev) API routes
+- **Database**: MySQL + [Drizzle ORM](https://orm.drizzle.team)
+- **File Uploads**: [Cloudinary](https://cloudinary.com)
+- **Other Tools**: Tailwind CSS, TypeScript
+
+---
+
+## 📸 Screenshots
+
+### Hero Page
+
+|                     Desktop                      |                     Tablet                     |                     Mobile                     |
+| :----------------------------------------------: | :--------------------------------------------: | :--------------------------------------------: |
+| ![HeroPageDesktop](./assets/HeroPageDesktop.png) | ![HeroPageTablet](./assets/HeroPageTablet.png) | ![HeroPageMobile](./assets/HeroPageMobile.png) |
+
+### Add School Page
+
+|                          Desktop                           |                          Tablet                          |                          Mobile                          |
+| :--------------------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: |
+| ![AddSchoolPageDesktop](./assets/AddSchoolPageDesktop.png) | ![AddSchoolPageTablet](./assets/AddSchoolPageTablet.png) | ![AddSchoolPageMobile](./assets/AddSchoolPageMobile.png) |
+
+---
+
+## 📂 Folder Structure
+
+```
+school-demo/
+├── src/
+│   ├── app/               # Next.js app router
+│   ├── features/          # School, Search, Upload modules
+│   ├── components/        # Reusable UI components
+│   ├── lib/               # DB, utils, RPC setup
+│   ├── hooks/             # Custom React hooks
+│   ├── zodSchema/         # Validation schemas
+│   └── services/          # Cloudinary & upload services
+├── assets/                # Screenshots for README
+├── public/                # Static assets
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Setup & Run
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone repo:
 
-## Learn More
+   ```bash
+   git clone https://github.com/Rcmade/schools.git
+   cd school-demo
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Configure `.env`:
 
-## Deploy on Vercel
+   ```env
+   DB_HOST=
+   DB_PORT=
+   DB_USER=
+   DB_PASSWORD=
+   DB_NAME=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   NEXT_PUBLIC_URL="http://localhost:3000"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
+   NEXT_PUBLIC_CLOUDINARY_API_KEY=
+   CLOUDINARY_API_SECRET=
+   NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=
+   ```
+
+4. Run migrations & seed:
+
+   ```bash
+   pnpm db-migrate
+   pnpm tsx src/lib/db/seed.ts
+   ```
+
+5. Start dev server:
+
+   ```bash
+   pnpm dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) 🎉
+
+---
+
+## 🏗️ How I Built It
+
+1. **Scaffolded project** with Next.js + Tailwind.
+2. **Designed DB schema** (schools table) with Drizzle.
+3. **Built API routes** using Hono.js + Next.js route handlers.
+4. **Integrated forms** with React Hook Form + Zod.
+5. **Added Cloudinary uploads** for school images.
+6. **Implemented search filters** (city, board, medium).
+7. **Created responsive UI** with ShadCN UI components.
+8. **Tested across devices** (desktop, tablet, mobile).
