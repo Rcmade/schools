@@ -2,7 +2,7 @@
 
 import AddSchoolButton from "@/features/school/components/button/AddSchoolButton";
 import LogoButton from "../buttons/LogoButton";
-import SearchPage from "../inputs/SearchInput";
+import SearchInput from "../inputs/SearchInput";
 
 export default function Navbar() {
   return (
@@ -13,7 +13,7 @@ export default function Navbar() {
             <LogoButton />
 
             <div className="hidden md:flex items-center space-x-6">
-              <SearchPage />
+              <SearchInput />
             </div>
           </div>
 

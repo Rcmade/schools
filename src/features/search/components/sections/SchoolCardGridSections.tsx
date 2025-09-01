@@ -1,5 +1,6 @@
 "use client";
 import PaginationButtons from "@/components/buttons/PaginationButtons";
+import SearchInput from "@/components/inputs/SearchInput";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -21,7 +22,8 @@ const SchoolCardGridSections = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-end md:hidden">
+      <div className="flex justify-end md:hidden gap-2">
+        <SearchInput />
         <Sheet>
           <SheetTrigger asChild>
             <Button className="gap-2 ml-auto" size={"sm"}>

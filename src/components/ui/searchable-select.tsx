@@ -49,7 +49,10 @@ export function SearchableSelect({
   const [search, setSearch] = React.useState(searchVal || "");
 
   const selectedLabel =
-    options?.find((o) => o.value === value)?.label ?? value ?? "";
+    options?.find((o) => o.value?.toLowerCase() === value?.toLowerCase())
+      ?.label ??
+    value ??
+    "";
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
