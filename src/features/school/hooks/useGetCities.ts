@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { InferRequestType } from "hono";
 import { useSearchParams } from "next/navigation";
 
-const api = client.main.public.cities.$get;
+const api = client.api.main.public.cities.$get;
 export type CityRequest = InferRequestType<typeof api>['query']
 
 const useGetCities = () => {

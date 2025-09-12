@@ -168,7 +168,9 @@ const SearchFilterSidebar = () => {
                 max={500001}
                 step={5000}
                 value={[value.minFees, value.maxFees]}
-                onValueChange={([min, max]) => updateFees(min, max)}
+                onValueChange={([min, max]) =>
+                  updateFees(min || 0, max || 500001)
+                }
               />
               <div className="flex items-center justify-between text-xs text-muted-foreground">
                 {sliderMarks.map((m) => (

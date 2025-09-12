@@ -1,3 +1,4 @@
+import { authRoute } from "@/features/auth/server/route";
 import { adminSchoolRoutes } from "@/features/school/server/adminSchoolRoutes";
 import publicRoutes from "@/features/school/server/publicRoutes";
 import { schoolSearchRoutes } from "@/features/search/server/schoolSearchRoutes";
@@ -14,7 +15,8 @@ const routes = app
   .route("/admin/school", adminSchoolRoutes)
   .route("/search", schoolSearchRoutes)
   .route("/public/", publicRoutes)
-  .route("/uploads", uploadsRoutes);
+  .route("/uploads", uploadsRoutes)
+  .route("/auth", authRoute);
 
 export const GET = handle(app);
 export const POST = handle(app);

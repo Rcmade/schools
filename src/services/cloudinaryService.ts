@@ -11,6 +11,7 @@ export const getCloudinaryId = (link: string) => {
   return parts && parts.length > 2 ? parts[parts.length - 2] : link;
 };
 
+
 export const generateSignature = (publicId: string, apiSecret: string) => {
   const timestamp = new Date().getTime();
   return `public_id=${publicId}&timestamp=${timestamp}${apiSecret}`;
@@ -67,7 +68,7 @@ export const getSignature = async (): Promise<SignatureReturnT> => {
   const upload_preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!;
   const source = "uw";
 
-  const res = await client.main.uploads.signature.$post({
+  const res = await client.api.main.uploads.signature.$post({
     json: { timestamp: String(timestamp), upload_preset, source },
   });
 

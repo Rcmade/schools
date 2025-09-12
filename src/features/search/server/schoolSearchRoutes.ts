@@ -13,7 +13,6 @@ export const schoolSearchRoutes = new Hono().get(
     const { city, boards, mediums, minFees, maxFees, search, page, pageSize } =
       c.req.valid("query");
 
-
     // Base conditions
     const conditions = [
       gte(schools.feesMin, minFees),
@@ -52,10 +51,12 @@ export const schoolSearchRoutes = new Hono().get(
       .orderBy(schools.name);
 
     // Get total count for pagination
-    const [{ count }] = await db
+    const [countDb] = await db
       .select({ count: sql<number>`count(*)` })
       .from(schools)
       .where(whereClause);
+
+    const count = countDb?.count || 0;
 
     return c.json({
       data: rows,

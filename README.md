@@ -35,6 +35,14 @@ Built with **Next.js**, **MySQL**, **React Hook Form**, **Zod Validator**, **Dri
 | :----------------------------------------------: | :--------------------------------------------: | :--------------------------------------------: |
 | ![HeroPageDesktop](./assets/HeroPageDesktop.png) | ![HeroPageTablet](./assets/HeroPageTablet.png) | ![HeroPageMobile](./assets/HeroPageMobile.png) |
 
+### Auth Page
+
+|                     Desktop                     |                      Tablet                      |                      Mobile                      |
+| :---------------------------------------------: | :----------------------------------------------: | :----------------------------------------------: |
+| ![AddSchoolPageDesktop](./assets/LoginPage.png) | ![AddSchoolPageTablet](./assets/LoginTablet.png) | ![AddSchoolPageMobile](./assets/LoginMobile.png) |
+
+---
+
 ### Add School Page
 
 |                          Desktop                           |                          Tablet                          |                          Mobile                          |

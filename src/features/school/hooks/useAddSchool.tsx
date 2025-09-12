@@ -4,20 +4,19 @@ import { getSignature, uploadToCloudinary } from "@/services/cloudinaryService";
 import { schoolSchema, SchoolSchemaT } from "@/zodSchema/schoolSchema";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { InferRequestType, InferResponseType } from "hono";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import useGetBoardAndMedium from "./useGetBoardAndMedium";
 
 // API setup
-const api = client.main.admin.school.$post;
+const api = client.api.main.admin.school.$post;
 
 type ResponseType = InferResponseType<typeof api, 201>;
 type RequestType = InferRequestType<typeof api>;
 
 export const useAddSchool = () => {
-  const queryClient = useQueryClient();
   const toastId = "school";
 
   const { data: boardAndMedium } = useGetBoardAndMedium();

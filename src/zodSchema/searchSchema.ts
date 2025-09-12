@@ -9,7 +9,7 @@ export const schoolSearchSchema = object({
   maxFees: coerce.number().min(0).default(500000),
   search: string().optional(),
   page: coerce.number().min(1).default(1),
-  pageSize: coerce.number().min(1).max(50).default(10),
+  pageSize: coerce.number().min(1).max(50).default(16),
 });
 
 export type SchoolSearchSchemaT = z.infer<typeof schoolSearchSchema>;

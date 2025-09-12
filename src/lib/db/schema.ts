@@ -1,4 +1,3 @@
-import { sql } from "drizzle-orm";
 import {
   index,
   int,
@@ -8,11 +7,18 @@ import {
   varchar,
 } from "drizzle-orm/mysql-core";
 
+const commonFields = {
+  id: int("id").autoincrement().primaryKey(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at")
+    .notNull()
+    .$onUpdate(() => new Date())
+    .defaultNow(),
+};
+
 export const schools = mysqlTable(
   "schools",
   {
-    id: int("id").autoincrement().primaryKey(),
-
     // Basic Info
     name: varchar("name", { length: 255 }).notNull(),
     board: varchar("board", { length: 64 }).notNull(), // CBSE, ICSE, State Board, IB
@@ -32,20 +38,17 @@ export const schools = mysqlTable(
     website: varchar("website", { length: 255 }),
     image: text("image"),
 
-    // Timestamps
-    createdAt: timestamp("created_at")
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updated_at")
-      .default(sql`CURRENT_TIMESTAMP`)
-      .onUpdateNow()
-      .notNull(),
+    ...commonFields,
   },
 
-  (table) => [
-    index("idx_schools_name").on(table.name),
-  ]
+  (table) => [index("idx_schools_name").on(table.name)]
 );
 
 export type School = typeof schools.$inferSelect;
 export type NewSchool = typeof schools.$inferInsert;
+
+export const users = mysqlTable("user", {
+  name: text("name").notNull(),
+  email: varchar("email", { length: 255 }).notNull(),
+  ...commonFields,
+});

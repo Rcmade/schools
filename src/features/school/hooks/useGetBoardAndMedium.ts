@@ -2,7 +2,7 @@ import { client } from "@/lib/rpc";
 import { useQuery } from "@tanstack/react-query";
 import { InferResponseType } from "hono";
 
-const api = client.main.public["board-medium"].$get;
+const api = client.api.main.public["board-medium"].$get;
 type GetBoardMediumResponse = InferResponseType<typeof api, 200>;
 
 const useGetBoardAndMedium = () => {

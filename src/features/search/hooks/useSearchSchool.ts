@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { InferResponseType } from "hono";
 import { useSearchParams } from "next/navigation";
 
-const api = client.main.search.school.$get;
+const api = client.api.main.search.school.$get;
 export type SearchSchoolResponseType = InferResponseType<typeof api>;
 
 export function useSchoolSearch() {
